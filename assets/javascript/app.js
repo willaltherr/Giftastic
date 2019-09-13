@@ -9,7 +9,7 @@ function renderButtons() {
       <div class="wrap-buttons">
         <button
           class="btn btn-search"
-          data-name="${buttonName}
+          data-name="${buttonName}"
         >${buttonName}</button>
         <button
           data-name="${buttonName}"
@@ -17,5 +17,10 @@ function renderButtons() {
         ></button>
       <div>
     `;
+
+    $('.recent-search').append(button);
+
   }
 }
+
+renderButtons();
