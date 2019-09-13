@@ -3,7 +3,7 @@ var topics = ["Brazil", "Germany", "Australia", "France", "Japan", "India", "Egy
 
 function renderButtons() {
 
-
+  $('.recent-search').empty();
   for (var i = 0; i < topics.length; i++) {
     var buttonName = topics[i];
 
@@ -36,5 +36,4 @@ $("#submit-button").on('click', function(event){
 
   renderButtons();
 
-  console.log('Value: ', value);
 });
