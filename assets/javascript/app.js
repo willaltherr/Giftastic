@@ -26,3 +26,15 @@ function renderButtons() {
 }
 
 renderButtons();
+
+$("#submit-button").on('click', function(event){
+  event.preventDefault();
+
+  var value = $('#search').val();
+
+  topics.push(value);
+
+  renderButtons();
+
+  console.log('Value: ', value);
+});
