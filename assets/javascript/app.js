@@ -1,5 +1,7 @@
 // Global Variables
-var topics = ["Brazil", "Germany", "Australia", "France", "Japan", "India", "Egypt", "China", "Cuba", "Russia", "South Africa", "Italy", "Saudi Arabia"]
+var topics = ["Brazil", "Germany", "Australia", "France", "Japan", "India", "Egypt", "China", "Cuba", "Russia"]
+var apiKey = "lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc"
+var endpoint = "http://api.giphy.com/v1/gifs/search?api_key=lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc&q=germany&limit=10"
 
 function renderButtons() {
 
@@ -12,11 +14,8 @@ function renderButtons() {
         <button
           class="btn btn-search"
           data-name="${buttonName}"
+          data-index="${i}"
         >${buttonName}</button>
-        <button
-          data-name="${buttonName}"
-          class="btn btn-delete fas fa-times"
-        ></button>
       <div>
     `;
 
@@ -27,13 +26,20 @@ function renderButtons() {
 
 renderButtons();
 
-$("#submit-button").on('click', function(event){
-  event.preventDefault();
-
-  var value = $('#search').val();
-
+function addButton(value) {
   topics.push(value);
 
   renderButtons();
 
-});
+}
+
+function searcGiphy(event) {
+  event.preventDefault();
+
+  var value = $('#search').val();
+  addButton(value);
+
+  
+}
+
+$("#submit-button").on('click', searcGiphy);
