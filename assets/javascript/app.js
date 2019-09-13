@@ -1,7 +1,7 @@
 // Global Variables
 var topics = ["Brazil", "Germany", "Australia", "France", "Japan", "India", "Egypt", "China", "Cuba", "Russia"]
 var apiKey = "lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc"
-var endpoint = "http://api.giphy.com/v1/gifs/search?api_key=lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc&q=germany&limit=10"
+var endpoint = "http://api.giphy.com/v1/gifs/search?api_key=lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc"
 
 function renderButtons() {
 
@@ -39,7 +39,9 @@ function searchGiphy(event) {
   var value = $('#search').val();
   addButton(value);
 
-  $.ajax({ url: endpoint })
+  var url = endpoint + '&q=' + value + '&limit=10';
+
+  $.ajax({ url: url })
     .then(function(data){
       console.log('Data: ', data);
 
