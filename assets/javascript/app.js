@@ -2,6 +2,8 @@
 var topics = ["Brazil", "Germany", "Australia", "France", "Japan", "India", "Egypt", "China", "Cuba", "Russia", "South Africa", "Italy", "Saudi Arabia"]
 
 function renderButtons() {
+
+
   for (var i = 0; i < topics.length; i++) {
     var buttonName = topics[i];
 
@@ -13,7 +15,7 @@ function renderButtons() {
         >${buttonName}</button>
         <button
           data-name="${buttonName}"
-          class="btn btn-delete"
+          class="btn btn-delete fas fa-times"
         ></button>
       <div>
     `;
