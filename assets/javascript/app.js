@@ -33,13 +33,17 @@ function addButton(value) {
 
 }
 
-function searcGiphy(event) {
+function searchGiphy(event) {
   event.preventDefault();
 
   var value = $('#search').val();
   addButton(value);
 
-  
+  $.ajax({ url: endpoint })
+    .then(function(data){
+      console.log('Data: ', data);
+
+    })
 }
 
-$("#submit-button").on('click', searcGiphy);
+$("#submit-button").on('click', searchGiphy);
