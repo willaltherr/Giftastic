@@ -33,19 +33,50 @@ function addButton(value) {
 
 }
 
+function renderGiphys(giphys) {
+
+  for(var i = 0; i < giphys.length; i++) {
+    var giphy = giphys[i];
+    var images = giphy.images;
+    var giphyTemplate = `
+    <div class="giphy">
+      <div class="giphy-image">
+          <img 
+            src="${images.original_still.url}" 
+            data-still="${images.original_still.url}"
+            data-animate="${images.original.url}"
+            data-state="still">
+          <i class="fa fa-play img-play"></i>
+      </div>
+      <div class="giphy-info">
+          <p>Rating: g</p>
+      </div>
+    </div>
+    `;
+    $('.giphy-content').append(giphyTemplate);
+  }
+}
+
+function fetchGiphy(value) {
+  var url = endpoint + '&q=' + value + '&limit=10';
+
+  $.ajax({ url: url })
+    .then(function(response){
+      var giphys = response.data;
+      renderGiphys(giphys);
+      console.log('Data: ', data);
+
+    });
+}
+
+
 function searchGiphy(event) {
   event.preventDefault();
 
   var value = $('#search').val();
   addButton(value);
-
-  var url = endpoint + '&q=' + value + '&limit=10';
-
-  $.ajax({ url: url })
-    .then(function(data){
-      console.log('Data: ', data);
-
-    })
+  fetchGiphy(value);
+  
 }
 
 $("#submit-button").on('click', searchGiphy);
