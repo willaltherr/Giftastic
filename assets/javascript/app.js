@@ -35,7 +35,7 @@ function addButton(value) {
 
 function createGiphyTemplate(giphy) {
   var images = giphy.images;
-  var rating = giphy.data;
+  var rating = giphy.rating;
   var template = `
     <div class="giphy">
       <div class="giphy-image">
@@ -47,7 +47,7 @@ function createGiphyTemplate(giphy) {
           <i class="fa fa-play img-play"></i>
       </div>
       <div class="giphy-info">
-          <p>Rating: G</p>
+          <p>Rating: ${rating}</p>
       </div>
     </div>
     `;
