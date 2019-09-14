@@ -33,12 +33,9 @@ function addButton(value) {
 
 }
 
-function renderGiphys(giphys) {
-
-  for(var i = 0; i < giphys.length; i++) {
-    var giphy = giphys[i];
-    var images = giphy.images;
-    var giphyTemplate = `
+function createGiphyTemplate(giphy) {
+  var images = giphy.images;
+  var template = `
     <div class="giphy">
       <div class="giphy-image">
           <img 
@@ -53,6 +50,16 @@ function renderGiphys(giphys) {
       </div>
     </div>
     `;
+
+    return template;
+}
+
+function renderGiphys(giphys) {
+
+  $('.giphy-content').empty();
+  for(var i = 0; i < giphys.length; i++) {
+    var giphy = giphys[i];
+    var giphyTemplate = createGiphyTemplate(giphy);
     $('.giphy-content').append(giphyTemplate);
   }
 }
@@ -64,7 +71,6 @@ function fetchGiphy(value) {
     .then(function(response){
       var giphys = response.data;
       renderGiphys(giphys);
-      console.log('Data: ', data);
 
     });
 }
