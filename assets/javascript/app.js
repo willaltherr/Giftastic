@@ -116,5 +116,11 @@ function imgCardClick() {
   }
 }
 
+function searchGiphyByButton() {
+  var buttonName = $(this).attr('data-name');
+  fetchGiphy(buttonName);
+}
+
 $(document).on('click', '.giphy-image', imgCardClick);
+$(document).on('click', '.btn-search', searchGiphyByButton);
 $("#submit-button").on('click', searchGiphy);

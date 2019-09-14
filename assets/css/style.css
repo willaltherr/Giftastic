@@ -58,3 +58,12 @@
   justify-content: space-around;
   margin: 1em .5em;
 }
+
+.btn-search {
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+.btn-primary {
+  margin-top: 1%;
+}
