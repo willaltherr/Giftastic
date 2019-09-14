@@ -35,6 +35,7 @@ function addButton(value) {
 
 function createGiphyTemplate(giphy) {
   var images = giphy.images;
+  var rating = giphy.data;
   var template = `
     <div class="giphy">
       <div class="giphy-image">
@@ -46,7 +47,7 @@ function createGiphyTemplate(giphy) {
           <i class="fa fa-play img-play"></i>
       </div>
       <div class="giphy-info">
-          <p>Rating: g</p>
+          <p>Rating: G</p>
       </div>
     </div>
     `;
@@ -71,7 +72,7 @@ function fetchGiphy(value) {
     .then(function(response){
       var giphys = response.data;
       renderGiphys(giphys);
-
+      console.log(giphys);
     });
 }
 
@@ -83,6 +84,37 @@ function searchGiphy(event) {
   addButton(value);
   fetchGiphy(value);
   
+  $('#search').val('');
 }
 
+function imgCardClick() {
+  var giphyCard = $(this);
+
+  var img = giphyCard.find('img');
+  var icon = giphyCard.find('i');
+
+  var still = img.attr('data-still');
+  var animate = img.attr('data-animate');
+  var state = img.attr('data-state');
+
+  if (state === 'still') {
+    img.attr({
+      src: animate,
+      'data-state': 'animate'
+    });
+
+    icon.removeClass('img-play');
+
+  } else {
+    img.attr({
+      src: still,
+      'data-state': 'still'
+    });
+
+    icon.addClass('img-play');
+
+  }
+}
+
+$(document).on('click', '.giphy-image', imgCardClick);
 $("#submit-button").on('click', searchGiphy);
