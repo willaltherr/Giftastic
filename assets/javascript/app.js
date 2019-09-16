@@ -1,7 +1,7 @@
 // Global Variables
 var topics = ["Brazil", "Germany", "Australia", "France", "Japan", "India", "Egypt", "China", "Cuba", "Russia"]
 var apiKey = "lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc"
-var endpoint = "http://api.giphy.com/v1/gifs/search?api_key=lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc"
+var endpoint = "https://api.giphy.com/v1/gifs/search?api_key=lKCQFbbk9oVhGTx0XIBwEiyIDWaJtjTc"
 
 function renderButtons() {
 
